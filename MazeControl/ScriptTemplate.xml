@@ -1,0 +1,45 @@
+﻿<maze>
+  <description>
+    This is a dual-choice maze configuration
+  </description>
+
+  <session count="2" rest="5">
+    <trial count="2" prompt="n" delay="5">
+      <state name="start" start="y">
+        <command door="DS0" action="open"/>
+        <when sensor="MS0" state="tee"/>
+      </state>
+      <state name="tee">
+        <command door="DS0" action="close" delay="2"/>
+        <command door="DS1" action="open"/>
+        <command door="DS2" action="open"/>
+        <when sensor="MS1" state="left" label="left choice"/>
+        <when sensor="MS2" state="right" label="right choice"/>
+      </state>
+      <state name="right">
+        <command door="DS2" action="close"/>
+        <when sensor="MF2" state="right exit">
+          <reward tray="FT2" count="1"/>
+        </when>
+        <when timeout="5" state="right exit"/>
+      </state>
+      <state name="right exit">
+        <command door="DA2" action="open"/>
+        <command door="DP2" action="open"/>
+        <when sensor="MP2" state="right complete"/>
+      </state>
+      <state name="right complete" complete="y">
+        <command door="DP2" action="close"/>
+      </state>
+      <state name="left">
+        <command door="DS1" action="close"/>
+        <command door="DA1" action="open"/>
+        <command door="DP1" action="open"/>
+        <when sensor="MP1" state="left complete"/>
+      </state>
+      <state name="left complete" complete="y">
+        <command door="DP1" action="close"/>
+      </state>
+    </trial>
+  </session>
+</maze>

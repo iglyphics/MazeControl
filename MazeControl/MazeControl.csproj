@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56018E4D-BFD5-432D-B381-02B22CDF69F8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MazeControl</RootNamespace>
+    <AssemblyName>MazeControl</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MazeControl.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.3.0.1\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CountdownTimer.cs" />
+    <Compile Include="CountdownTimerEventArgs.cs" />
+    <Compile Include="DoorChangedEventArgs.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="LcdDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LcdDisplay.Designer.cs">
+      <DependentUpon>LcdDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoopControl.cs" />
+    <Compile Include="MazeController.cs" />
+    <Compile Include="MazeDataPoint.cs" />
+    <Compile Include="MazeDisplayHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MazeDisplayHost.Designer.cs">
+      <DependentUpon>MazeDisplayHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MazeHost.cs" />
+    <Compile Include="MazeHost.Designer.cs">
+      <DependentUpon>MazeHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MazeRunner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MazeRunner.Designer.cs">
+      <DependentUpon>MazeRunner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MazeTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Messages\StateEvent.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PumpCommand.cs" />
+    <Compile Include="Queues.cs" />
+    <Compile Include="ResultsViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResultsViewer.Designer.cs">
+      <DependentUpon>ResultsViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptRewardCommand.cs" />
+    <Compile Include="ScriptEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScriptEditor.Designer.cs">
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptEditorControl.xaml.cs">
+      <DependentUpon>ScriptEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptEndEventArgs.cs" />
+    <Compile Include="ScriptSessionMachine.cs" />
+    <Compile Include="ScriptTrialMachine.cs" />
+    <Compile Include="ScriptMachineEventArgs.cs" />
+    <Compile Include="ScriptStateEventArgs.cs" />
+    <Compile Include="ScriptMachine.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="ScriptCondition.cs" />
+    <Compile Include="ScriptConditionEventArgs.cs" />
+    <Compile Include="ScriptDoorCommand.cs" />
+    <Compile Include="ScriptState.cs" />
+    <Compile Include="ScriptRule.cs" />
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LcdDisplay.resx">
+      <DependentUpon>LcdDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MazeDisplayHost.resx">
+      <DependentUpon>MazeDisplayHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MazeRunner.resx">
+      <DependentUpon>MazeRunner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Mouse Maze.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="ResultsViewer.resx">
+      <DependentUpon>ResultsViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptEditor.resx">
+      <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <Content Include="Pinky.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MouseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoMouseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Maze3D\Maze3D.csproj">
+      <Project>{B87EC8DA-A5FA-4E5E-BD40-434A4B4E8807}</Project>
+      <Name>Maze3D</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Gnome-View-Refresh-32.png" />
+    <None Include="Resources\file-edit-16x16.gif" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\trash-bin-1.png" />
+    <None Include="Resources\document---text-documents---add.png" />
+    <None Include="Resources\save_icon.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\page_excel.png" />
+    <None Include="Resources\shadow.png" />
+    <None Include="Resources\St.-Jude-Logo_small.png" />
+    <Content Include="script.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ScriptTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ScriptEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
